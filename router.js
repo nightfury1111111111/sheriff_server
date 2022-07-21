@@ -14,6 +14,10 @@ const {
   getBalance,
 } = require("./utils/keplr");
 
+router.get("/test", (req, res, next) => {
+  return res.status(200).send("ok working");
+});
+
 router.post("/register", signupValidation, (req, res, next) => {
   db.query(
     `SELECT * FROM users WHERE address = ${db.escape(
